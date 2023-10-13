@@ -1,0 +1,163 @@
+<html>
+
+<head>
+  <title>I ♡ Steganography</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+  <div class="wraper">
+    <div class="title">
+      <h1><strong> I ♡ Steganography</strong></h1>
+  </div>
+    </div>
+    <div class="container">
+      <ul class="nav nav-tabs" id="tabs" data-tabs="tabs">
+        <li role="presentation" class="active"><a href="#encode" data-toggle="tab">Encode</a></li>
+        <li role="presentation"><a href="#decode" data-toggle="tab">Decode</a></li>
+      </ul>
+
+      <div id="my-tab-content" class="tab-content">
+        <div class="tab-pane active" id="encode">
+          <div>
+            <h2><strong>Encode a message</strong></h2>
+            <p class="alert alert-info">
+              Choose a picture, input the messages then click <strong>Encode</strong>. <br />
+              <br />
+              <strong> Congratulations! you have picture with hidden message!</strong>
+              <br />
+              <br />
+              *Notes: you can download the picture by right click on the picture then save image as.
+            </p>
+            
+            <form class="form">
+              <div class="form-group">
+                <input class="form-control" type="file" name="baseFile" onchange="previewEncodeImage()" />
+              </div>
+
+              <div class="form-group">
+                <textarea class="form-control message" rows="3" placeholder="Write your messages here..."></textarea>
+              </div>
+
+              <div class="form-group">
+                <button class="encode btn btn-default pull-right" onclick="encodeMessage()">Encode</button>
+              </div>
+            </form>
+            <div class="clearfix"></div>
+          </div>
+
+          <div class="error" style="display: none"></div>
+          <div class="binary" style="display: none">
+            <h3 hidden>Binary representation of your message</h3>
+            <textarea class hidden="form-control message" style="word-wrap: break-word"> </textarea>
+          </div>
+          <div class="images" style="display: none">
+            <div class="original" style="display: none">
+              <h3 hidden>Original</h3>
+              <canvas></canvas>
+            </div>
+            <div class="nulled" style="display: none">
+              <h3 hidden>Normalized</h3>
+              <canvas style="display: none"></canvas>
+            </div>
+            <div class="message" style="display: none">
+              <h3>Here is your message hidden in image!</h3>
+              <p style="color: tomato">*Notes: you can download the picture by right click on the picture then save
+                image as.</p>
+              <canvas></canvas>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-pane" id="decode">
+          <div>
+            <h2><strong>Decode an Image</strong></h2>
+            <p class="alert alert-info">
+              Choose an image filled with hidden message, then click <strong>Decode</strong>.<br />
+              Your Message will be showned bellow!
+            </p>
+            <form class="form">
+              <div class="form-group">
+                <input class="form-control" type="file" name="decodeFile" onchange="previewDecodeImage()" />
+              </div>
+              <div class="form-group">
+                <button class="decode btn btn-default pull-right" onclick="decodeMessage()">Decode</button>
+              </div>
+            </form>
+            <div class="clearfix"></div>
+          </div>
+          <div class="binary-decode" style="display: none">
+            <h3>Your hidden message</h3>
+            <textarea class="form-control message" style="word-wrap: break-word"> </textarea>
+          </div>
+          <div class="decode" style="display: none">
+            <h3>Input</h3>
+            <canvas></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <p>&copy; 2023 | IT Security | 7A | Maisa - Intan - Della </p>
+</footer>  
+
+  <style>
+    canvas {
+      max-width: 100%;
+      background-color: #FFE4D6;
+    }
+
+
+    .wraper {
+      margin-bottom: 100px;
+      width: 100%;
+    }
+
+    .title {
+      text-align: center;
+      width: 100%;
+      color: white;
+      font-family: 'Century Gothic', sans-serif;
+      background-color: #80B3FF;
+      padding: 1.5em 20px;
+      margin-bottom: 30px;
+    }
+
+    .title h1 {
+      font-size: 4em;
+      padding-bottom: 20px;
+    }
+
+    .title h2 {
+      font-size: 2em;
+      padding-bottom: 5px;
+    }
+
+    .container {
+      margin-top: 20px;
+      padding: 30px;
+      background-color: #FBECB2;
+      border-radius: 15px;
+      width: 95%;
+    }
+
+    footer {
+        background-color: #80B3FF;
+        color: #fff;
+        text-align: center;
+        width: 100%;
+        margin-top: 100px;
+        padding: 0.5em 10px;
+    }
+  </style>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+  <script type="text/JavaScript" src="index.js"></script>
+</body>
+
+</html>
